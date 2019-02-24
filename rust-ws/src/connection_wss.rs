@@ -104,6 +104,7 @@ pub struct ConnectionWss<T: Read + Write + std::fmt::Debug> {
     out_sockets: SocketList<T>,
     event_queue: Vec<ConnectionEvent>,
     send_queue: Vec<(Vec<ConnectionId>, Vec<u8>)>,
+    n_id: u64,
 }
 
 impl<T: Read + Write + std::fmt::Debug> ConnectionWss<T> {
@@ -113,10 +114,17 @@ impl<T: Read + Write + std::fmt::Debug> ConnectionWss<T> {
             out_sockets: Vec::new(),
             event_queue: Vec::new(),
             send_queue: Vec::new(),
+            n_id: 1,
         }
     }
 
     // -- private -- //
+
+    fn priv_next_id(&mut self) -> String {
+        let out = format!("ws{}", self.n_id);
+        self.n_id += 1;
+        return out;
+    }
 
     fn priv_process_out_sockets(&mut self) -> ConnectionResult<bool> {
         let mut did_work = false;
@@ -245,7 +253,7 @@ impl<T: Read + Write + std::fmt::Debug> Connection for ConnectionWss<T> {
         );
         let socket = (self.stream_factory)(&host_port)?;
         let info = ConnectionInfo {
-            id: "fake".to_string(),
+            id: self.priv_next_id(),
             url: uri,
         };
         self.out_sockets.push((info.clone(), WssStreamState::Connecting(socket)));
