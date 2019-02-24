@@ -1,0 +1,10 @@
+[package]
+name = "rust-ws"
+version = "0.1.0"
+authors = ["neonphog <neonphog@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+tungstenite = "0.6.1"
+url = "1.7.0"
+native-tls = "0.2"
