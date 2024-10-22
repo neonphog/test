@@ -16,7 +16,7 @@ jobs:
       - name: Install Go
         run: |
           curl -LO curl -O https://go.dev/dl/go1.20.14.linux-amd64.tar.gz
-          tar xf go1.20.14.linux-amd64.tar.gz
+          (cd ~; tar xf go1.20.14.linux-amd64.tar.gz)
           echo ~/go/bin
           ls ~/go/bin/
           PATH=~/go/bin:$PATH go version
