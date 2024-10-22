@@ -1,0 +1,21 @@
+name: HcBuild
+on:
+  workflow_dispatch:
+jobs:
+  hc-build:
+    runs-on: ubuntu-latest
+    container:
+      image: dockbuild/ubuntu1804-gcc7:latest
+    steps:
+      - name: Print Glibc Version
+        run: ldd --version ldd
+
+      - name: Install Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --profile minimal -y
+
+      - name: Build tomlq
+        run: cargo install tomlq@0.1.6
+
+      - name: Print tomlq ldd
+        run: ldd $(which tomlq)
