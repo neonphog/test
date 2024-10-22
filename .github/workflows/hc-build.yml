@@ -17,4 +17,4 @@ jobs:
         run: PATH=~/.cargo/bin:$PATH cargo install tomlq@0.1.6
 
       - name: Print tomlq ldd
-        run: ldd $(which tomlq)
+        run: ldd ~/.cargo/bin/tomlq
