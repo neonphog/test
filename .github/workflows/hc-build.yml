@@ -15,7 +15,7 @@ jobs:
 
       - name: Install Go
         run: |
-          curl -O curl -O https://go.dev/dl/go1.20.14.linux-amd64.tar.gz
+          curl -LO curl -O https://go.dev/dl/go1.20.14.linux-amd64.tar.gz
           tar xf go1.20.14.linux-amd64.tar.gz
 
       - name: Build holochain
