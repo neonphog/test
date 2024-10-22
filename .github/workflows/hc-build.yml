@@ -16,13 +16,13 @@ jobs:
       - name: Install Go
         run: |
           curl -LO curl -O https://go.dev/dl/go1.20.14.linux-amd64.tar.gz
-          (cd ~; tar xf go1.20.14.linux-amd64.tar.gz)
-          echo ~/go/bin
-          ls ~/go/bin/
-          PATH=~/go/bin:$PATH go version
+          tar xf go1.20.14.linux-amd64.tar.gz
+          echo $(pwd)/go/bin
+          ls $(pwd)/go/bin/
+          PATH=$(pwd)/go/bin:$PATH go version
 
           #- name: Build holochain
-        #run: PATH=~/.cargo/bin:~/go/bin:$PATH cargo install holochain@0.5.0-dev.1
+        #run: PATH=~/.cargo/bin:$(pwd)/go/bin:$PATH cargo install holochain@0.5.0-dev.1
 
           #- name: Print holochain ldd
         #run: ldd ~/.cargo/bin/holochain
