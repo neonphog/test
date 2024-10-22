@@ -13,8 +13,13 @@ jobs:
       - name: Install Rust
         run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --profile minimal -y
 
-      - name: Build tomlq
-        run: PATH=~/.cargo/bin:$PATH cargo install tomlq@0.1.6
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '=1.20.0'
 
-      - name: Print tomlq ldd
-        run: ldd ~/.cargo/bin/tomlq
+      - name: Build holochain
+        run: PATH=~/.cargo/bin:$PATH cargo install holochain@0.5.0-dev.1
+
+      - name: Print holochain ldd
+        run: ldd ~/.cargo/bin/holochain
