@@ -1,5 +1,6 @@
 ---
 name: Release Checklist
+description: Create a release issue
 title: "[RELEASE]"
 body:
   - type: markdown
