@@ -18,3 +18,16 @@ body:
       description: The tasks required to consider this release complete. (Please complete the assignee in the task description).
       options:
         - label: confirm works reasonably in the field someplace
+  - type: textarea
+    id: repro
+    attributes:
+      label: Tasks
+      description: The tasks required to consider this release complete. (Please complete the assignee in the task description).
+      value: |
+        - [ ] confirm works reasonably in the field someplace: @
+        - [ ] confirm launcher build: @
+        - [ ] confirm with manual runs of a stress test app: @
+        - [ ] confirm scaffolding works: @
+        - [ ] confirm holonix branch `main-0.x`: @
+        - [ ] confirm any docs/updates ready to publish after release lands: @
+        
