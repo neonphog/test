@@ -17,4 +17,4 @@ body:
       label: Tasks
       description: The tasks required to consider this release complete. (Please complete the assignee in the task description).
       options:
-        - label: confirm works reasonably in the field someplace: @
+        - label: confirm works reasonably in the field someplace
