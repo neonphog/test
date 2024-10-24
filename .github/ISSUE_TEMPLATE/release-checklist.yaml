@@ -1,9 +1,6 @@
 ---
 name: Release Checklist
-about: Create a release checklist
 title: "[RELEASE]"
-labels: ''
-assignees: ''
 body:
   - type: markdown
     attributes:
